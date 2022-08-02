@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('merchant_id');
+            $table->string('house_number')->nullable()->default(null);
             $table->string('phone');
             $table->string('name');
             $table->tinyInteger('sex');
@@ -24,11 +25,16 @@ return new class extends Migration
             $table->tinyInteger('purpose');
             $table->decimal('min_price')->default(0.00);
             $table->decimal('selling_price')->default(0.00);
+            $table->string('floor')->nullable()->default(null);
+            $table->integer('chamber')->default(0);
+            $table->integer('hall')->default(0);
+            $table->integer('bathroom')->default(0);
+            $table->integer('kitchen')->default(0);
+            $table->integer('balcony')->default(0);
             $table->string('complex')->nullable()->default(null);
             $table->string('building')->nullable()->default(null);
             $table->string('unit')->nullable()->default(null);
             $table->string('room')->nullable()->default(null);
-            $table->string('apartment_layout')->nullable()->default(null);
             $table->integer('year')->nullable()->default(0);
             $table->integer('building_area')->default(0);
             $table->string('usable_area')->default(0);
